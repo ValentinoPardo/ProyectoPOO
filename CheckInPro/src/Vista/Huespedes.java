@@ -41,7 +41,7 @@ public class Huespedes extends javax.swing.JPanel {
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         BtnAgregar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        BtnCancelar = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -109,7 +109,7 @@ public class Huespedes extends javax.swing.JPanel {
 
         jLabel4.setText("Correo Electronico");
 
-        jLabel5.setText("Documento");
+        jLabel5.setText("dni");
 
         jLabel6.setText("Telefono");
 
@@ -120,7 +120,7 @@ public class Huespedes extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setText("C a n c e l a r");
+        BtnCancelar.setText("C a n c e l a r");
 
         jButton3.setText("N u e v o");
 
@@ -180,8 +180,8 @@ public class Huespedes extends javax.swing.JPanel {
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(BtnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(77, Short.MAX_VALUE))
+                            .addComponent(BtnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,7 +227,7 @@ public class Huespedes extends javax.swing.JPanel {
                                     .addComponent(jLabel6)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(27, 27, 27)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(BtnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -239,7 +239,7 @@ public class Huespedes extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAgregar;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton BtnCancelar;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
