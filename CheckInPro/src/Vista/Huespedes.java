@@ -10,11 +10,25 @@ package Vista;
  */
 public class Huespedes extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Huespedes
-     */
+    private String nombre;
+    private String apellido;
+    private int documento;
+    private int telefono;
+    private String correo;
+    
     public Huespedes() {
         initComponents();
+            
+    }
+    //////////////Setters//////////////
+    
+    
+    
+    
+    //////////////Getters//////////////
+   
+    String getNombre(){
+        return this.nombre;
     }
 
     /**
