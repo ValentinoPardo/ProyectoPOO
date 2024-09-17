@@ -10,27 +10,10 @@ package Vista;
  */
 public class Huespedes extends javax.swing.JPanel {
 
-    private String nombre;
-    private String apellido;
-    private int documento;
-    private int telefono;
-    private String correo;
-    
     public Huespedes() {
         initComponents();
             
     }
-    //////////////Setters//////////////
-    
-    
-    
-    
-    //////////////Getters//////////////
-   
-    String getNombre(){
-        return this.nombre;
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
