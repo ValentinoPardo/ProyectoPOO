@@ -4,9 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Valen/Desktop/asd/ProyectoPOO/CheckInPro/src/CheckinPro/CheckInPro.java</file>
-            <file>file:/C:/Users/Valen/Desktop/asd/ProyectoPOO/CheckInPro/src/Vista/Inicio.java</file>
-            <file>file:/C:/Users/Valen/Desktop/asd/ProyectoPOO/CheckInPro/src/Datos/DatosHuespedes.java</file>
-            <file>file:/C:/Users/Valen/Desktop/asd/ProyectoPOO/CheckInPro/src/Vista/Huespedes.java</file>
+            <file>file:/C:/Users/Valen/Desktop/asd/ProyectoPOO/CheckInPro/src/Datos/DatosHuespedesDaoListImpl.java</file>
+            <file>file:/C:/Users/Valen/Desktop/asd/ProyectoPOO/CheckInPro/src/Datos/Dao.java</file>
         </group>
     </open-files>
 </project-private>
