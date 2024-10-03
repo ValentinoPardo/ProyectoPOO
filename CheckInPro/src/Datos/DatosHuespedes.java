@@ -5,7 +5,7 @@ import java.util.Objects;
 
 
 public class DatosHuespedes {
-    
+    private int id;
     private String nombre;
     private String apellido;
     private String correo ;
@@ -19,6 +19,15 @@ public class DatosHuespedes {
         this.telefono = telefono;
         this.documento = documento;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     
     public String getNombre() {
         return nombre;
@@ -61,18 +70,14 @@ public class DatosHuespedes {
     }
 
     @Override
-    public String toString() {
-        return "DatosHuespedes{" + "nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", telefono=" + telefono + ", documento=" + documento + '}';
-    }
-
-    @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 29 * hash + Objects.hashCode(this.nombre);
-        hash = 29 * hash + Objects.hashCode(this.apellido);
-        hash = 29 * hash + Objects.hashCode(this.correo);
-        hash = 29 * hash + this.telefono;
-        hash = 29 * hash + this.documento;
+        int hash = 7;
+        hash = 31 * hash + this.id;
+        hash = 31 * hash + Objects.hashCode(this.nombre);
+        hash = 31 * hash + Objects.hashCode(this.apellido);
+        hash = 31 * hash + Objects.hashCode(this.correo);
+        hash = 31 * hash + this.telefono;
+        hash = 31 * hash + this.documento;
         return hash;
     }
 
@@ -88,6 +93,9 @@ public class DatosHuespedes {
             return false;
         }
         final DatosHuespedes other = (DatosHuespedes) obj;
+        if (this.id != other.id) {
+            return false;
+        }
         if (this.telefono != other.telefono) {
             return false;
         }
@@ -103,9 +111,10 @@ public class DatosHuespedes {
         return Objects.equals(this.correo, other.correo);
     }
 
-   
-    
-    
+    @Override
+    public String toString() {
+        return "DatosHuespedes{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", telefono=" + telefono + ", documento=" + documento + '}';
+    }
     
     
 }
