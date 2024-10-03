@@ -12,6 +12,11 @@ public class DatosHuespedes {
     private int telefono;
     private int documento;
     
+    
+ public DatosHuespedes(String nombre){
+     this.nombre = nombre;
+ }    
+    
  public DatosHuespedes(String nombre, String apellido, String correo, int telefono, int documento) {
         this.nombre = nombre;
         this.apellido = apellido;
