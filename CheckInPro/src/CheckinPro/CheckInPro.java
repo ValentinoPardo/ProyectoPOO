@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
-import Interfaces.DAOHuespedes;
+import Interfaces.DAO;
 
 public class CheckInPro {
 

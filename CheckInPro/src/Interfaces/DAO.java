@@ -10,9 +10,9 @@ import Datos.Huespedes;
 import java.util.List;
 
 
-public interface DAOHuespedes<T> {
+public interface DAO<T> {
     public void crear(Huespedes huesped) throws Exception;
     public void modificar(Huespedes huesped) throws Exception;
-    public void borrar(Huespedes huesped) throws Exception;
-    public List<Huespedes> listar() throws Exception;
+    public void borrar(int id) throws Exception;
+    public List<T> listar() throws Exception;
 }

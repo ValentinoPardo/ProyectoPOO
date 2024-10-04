@@ -2,8 +2,10 @@
 package Vista;
 
 import Datos.Huespedes;
-import Interfaces.DAOHuespedes;
 import Interfaces.DAOHuespedesImpl;
+import java.util.List;
+import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
+import Interfaces.DAO;
 
 
 
@@ -11,8 +13,11 @@ public class VHuespedes extends javax.swing.JPanel {
 
     public VHuespedes() {
         initComponents();
+        LoadHuespedes();
             
     }
+    
+    
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -34,56 +39,56 @@ public class VHuespedes extends javax.swing.JPanel {
         HTelefono = new javax.swing.JTextField();
         BtnAgregar = new javax.swing.JButton();
         BtnCancelar = new javax.swing.JButton();
-        BtnNuevo = new javax.swing.JButton();
+        BtnGuardar = new javax.swing.JButton();
         BtnEditar = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Apellido", "DNI", "Telefono", "Mail"
+                "Id", "Nombre", "Apellido", "DNI", "Telefono", "Mail"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -120,11 +125,27 @@ public class VHuespedes extends javax.swing.JPanel {
 
         BtnCancelar.setText("C a n c e l a r");
 
-        BtnNuevo.setText("N u e v o");
+        BtnGuardar.setText("G u a r d a r");
+        BtnGuardar.setName(""); // NOI18N
+        BtnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGuardarActionPerformed(evt);
+            }
+        });
 
         BtnEditar.setText("E d i t a r");
+        BtnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEditarActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("E l i m i n a r");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -139,7 +160,7 @@ public class VHuespedes extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(BtnEditar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                            .addComponent(BtnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(BtnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -207,7 +228,7 @@ public class VHuespedes extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(BtnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(BtnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(BtnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -223,17 +244,40 @@ public class VHuespedes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
+        String nombre = HNombre.getText();
+        String apellido = HApellido.getText();
+        String correo = HCorreo.getText();
+        String telefono = HTelefono.getText();
+        String documento = HDni.getText();
+        
+        if(nombre.isEmpty() || apellido.isEmpty() || correo.isEmpty() || telefono.isEmpty() || documento.isEmpty()){
+            javax.swing.JOptionPane.showMessageDialog(this, "debe completar todos los campos", "!!AVISO!!", INFORMATION_MESSAGE);
+            return;
+        }
+        
         Huespedes huesped = new Huespedes();
-        huesped.setNombre("Valentino");
-        huesped.setApellido("Pardo");
-        huesped.setCorreo("valentinopardo321@gmail.com");
-        huesped.setTelefono("2235268413");
-        huesped.setDocumento(Long.parseLong("2235268413"));
+        huesped.setNombre(nombre);
+        huesped.setApellido(apellido);
+        huesped.setCorreo(correo);
+        huesped.setTelefono(telefono);
+        huesped.setDocumento(Long.parseLong(documento));
         
         try {
-            DAOHuespedes dao = new DAOHuespedesImpl();
+            DAO dao = new DAOHuespedesImpl();
             dao.crear(huesped);
+            
+            javax.swing.JOptionPane.showMessageDialog(this, "Huesped Registrado", "AVISO", INFORMATION_MESSAGE);
+            
+            refreshTable();
+            
+            HNombre.setText("");
+            HApellido.setText("");
+            HCorreo.setText("");
+            HTelefono.setText("");
+            HDni.setText("");
+            
         } catch(Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ocurrio un error al intentar registrar al Huesped", "!!AVISO!!", HEIGHT);
             System.out.println(e.getMessage());
             
         }System.out.println("Huesped Registrado :D");
@@ -243,12 +287,77 @@ public class VHuespedes extends javax.swing.JPanel {
         
     }//GEN-LAST:event_HNombreActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        int[] selectedRows = jTable1.getSelectedRows();
+    
+    if (selectedRows.length == 0) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Seleccione al menos un huesped para eliminar", "!!AVISO!!", INFORMATION_MESSAGE);
+        return;
+    }
+    
+    try {
+        DAO dao = new DAOHuespedesImpl();
+        
+        for (int row : selectedRows) {
+            int userId = (int) jTable1.getValueAt(row, 0); 
+            dao.borrar(userId); 
+            
+            
+        }
+
+        javax.swing.JOptionPane.showMessageDialog(this, "Huesped(es) eliminado(s)", "AVISO", INFORMATION_MESSAGE);
+        refreshTable(); 
+
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error al intentar eliminar el huesped", "!!AVISO!!", INFORMATION_MESSAGE);
+        System.out.println(e.getMessage());
+    }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void BtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarActionPerformed
+        int selectedRow = jTable1.getSelectedRow(); 
+        System.out.println(selectedRow);
+        
+    if (selectedRow == -1) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Seleccione un huésped para editar", "!!AVISO!!", INFORMATION_MESSAGE);
+        return;
+    }
+
+    try {
+        DAO dao = new DAOHuespedesImpl();
+        
+        
+        
+        int id = (int) jTable1.getValueAt(selectedRow, 0);
+        String nombre = (String) jTable1.getValueAt(selectedRow, 1);
+        String apellido = (String) jTable1.getValueAt(selectedRow, 2);
+        String dni = jTable1.getValueAt(selectedRow, 3).toString();
+        String telefono = jTable1.getValueAt(selectedRow, 4).toString();
+        String correo = (String) jTable1.getValueAt(selectedRow, 5);
+
+        
+        HNombre.setText(nombre);
+        HApellido.setText(apellido);
+        HDni.setText(dni);
+        HTelefono.setText(telefono);
+        HCorreo.setText(correo);
+
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error al cargar los datos del huésped", "!!AVISO!!", INFORMATION_MESSAGE);
+        System.out.println(e.getMessage());
+    }
+    }//GEN-LAST:event_BtnEditarActionPerformed
+
+    private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnGuardarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAgregar;
     private javax.swing.JButton BtnCancelar;
     private javax.swing.JButton BtnEditar;
-    private javax.swing.JButton BtnNuevo;
+    private javax.swing.JButton BtnGuardar;
     private javax.swing.JTextField HApellido;
     private javax.swing.JTextField HCorreo;
     private javax.swing.JTextField HDni;
@@ -265,4 +374,35 @@ public class VHuespedes extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    private void LoadHuespedes() {
+    try {
+        DAO dao = new DAOHuespedesImpl();
+        List<Huespedes> listaHuespedes = dao.listar();
+
+        
+        String[] columnas = {"Id", "Nombre", "Apellido", "DNI", "Telefono", "Mail"};
+        Object[][] data = new Object[listaHuespedes.size()][columnas.length];
+
+        for (int i = 0; i < listaHuespedes.size(); i++) {
+            Huespedes huesped = listaHuespedes.get(i);
+            data[i][0] = huesped.getId(); 
+            data[i][1] = huesped.getNombre();
+            data[i][2] = huesped.getApellido();
+            data[i][3] = huesped.getDocumento(); 
+            data[i][4] = huesped.getTelefono(); 
+            data[i][5] = huesped.getCorreo();
+        }
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(data, columnas));
+
+    } catch (Exception e) {
+        System.out.println("Error al cargar los datos: " + e.getMessage());
+    }
+    }
+    private void refreshTable(){
+        LoadHuespedes();
+    }
 }
+    
+
