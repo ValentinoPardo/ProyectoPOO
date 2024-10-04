@@ -8,12 +8,12 @@ package Vista;
  *
  * @author Valen
  */
-public class Habitaciones extends javax.swing.JPanel {
+public class VHabitaciones extends javax.swing.JPanel {
 
     /**
      * Creates new form Habitaciones
      */
-    public Habitaciones() {
+    public VHabitaciones() {
         initComponents();
     }
 

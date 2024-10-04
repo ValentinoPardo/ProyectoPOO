@@ -190,7 +190,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Reservas r1 = new Reservas();
+        VReservas r1 = new VReservas();
         r1.setSize(760, 790);
         r1.setLocation(0, 0);
         
@@ -202,7 +202,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Huespedes h1 = new Huespedes();
+        VHuespedes h1 = new VHuespedes();
         h1.setSize(760, 790);
         h1.setLocation(0, 0);
         
@@ -215,7 +215,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        Habitaciones ha1 = new Habitaciones();
+        VHabitaciones ha1 = new VHabitaciones();
         ha1.setSize(760, 790);
         ha1.setLocation(0, 0);
         

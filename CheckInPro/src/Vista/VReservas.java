@@ -8,12 +8,12 @@ package Vista;
  *
  * @author Valen
  */
-public class Reservas extends javax.swing.JPanel {
+public class VReservas extends javax.swing.JPanel {
 
     /**
      * Creates new form Reservas
      */
-    public Reservas() {
+    public VReservas() {
         initComponents();
     }
 

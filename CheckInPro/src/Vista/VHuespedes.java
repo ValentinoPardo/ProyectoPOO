@@ -1,10 +1,15 @@
 
 package Vista;
 
+import Datos.Huespedes;
+import Interfaces.DAOHuespedes;
+import Interfaces.DAOHuespedesImpl;
 
-public class Huespedes extends javax.swing.JPanel {
 
-    public Huespedes() {
+
+public class VHuespedes extends javax.swing.JPanel {
+
+    public VHuespedes() {
         initComponents();
             
     }
@@ -218,7 +223,20 @@ public class Huespedes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
+        Huespedes huesped = new Huespedes();
+        huesped.setNombre("Valentino");
+        huesped.setApellido("Pardo");
+        huesped.setCorreo("valentinopardo321@gmail.com");
+        huesped.setTelefono("2235268413");
+        huesped.setDocumento(Long.parseLong("2235268413"));
         
+        try {
+            DAOHuespedes dao = new DAOHuespedesImpl();
+            dao.crear(huesped);
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+            
+        }System.out.println("Huesped Registrado :D");
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void HNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HNombreActionPerformed
