@@ -12,6 +12,7 @@ public class Huespedes {
     private String telefono;
     private long documento;   
 
+    
     public void setId(int id) {
         this.id = id;
     }

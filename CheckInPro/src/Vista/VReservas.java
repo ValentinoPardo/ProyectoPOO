@@ -4,6 +4,12 @@
  */
 package Vista;
 
+import Datos.DatosReservas;
+import Interfaces.DAO;
+import Interfaces.DAOReservasImpl;
+import java.util.List;
+import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
+
 /**
  *
  * @author Valen
@@ -30,14 +36,14 @@ public class VReservas extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        VCheckIn = new javax.swing.JTextField();
+        VCheckout = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        VHabitacion = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        VHuesped = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        VSeña = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
@@ -53,13 +59,18 @@ public class VReservas extends javax.swing.JPanel {
 
         jLabel3.setText("Checkout");
 
-        jTextField1.setToolTipText("");
+        VCheckIn.setToolTipText("");
+        VCheckIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VCheckInActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Nro Habitacion/es Reservada/s");
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        VHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                VHabitacionActionPerformed(evt);
             }
         });
 
@@ -67,9 +78,9 @@ public class VReservas extends javax.swing.JPanel {
 
         jLabel6.setText("Seña");
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        VSeña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                VSeñaActionPerformed(evt);
             }
         });
 
@@ -113,7 +124,7 @@ public class VReservas extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "CheckIn ", "Checkout", "Habitación/es", "Huesped", "Seña"
+                "CheckIIn ", "Checkout", "Habitación/es", "Huesped", "Seña"
             }
         ) {
             Class[] types = new Class [] {
@@ -127,10 +138,20 @@ public class VReservas extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("A g r e g a r");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("C a n c e l a r");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("N u e v o");
+        jButton3.setText("G u a r d a r");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -138,9 +159,19 @@ public class VReservas extends javax.swing.JPanel {
         });
 
         jButton4.setText("E d i t a r");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("E l i m i n a r");
         jButton5.setToolTipText("");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -167,29 +198,29 @@ public class VReservas extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(VCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(VCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField4))
+                        .addComponent(VHuesped))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(VHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addGap(73, 73, 73))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(VSeña, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(174, 174, 174)
@@ -208,15 +239,15 @@ public class VReservas extends javax.swing.JPanel {
                         .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(VCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(VHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(VCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(VHuesped, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -225,7 +256,7 @@ public class VReservas extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(VSeña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(84, 84, 84)))
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -241,20 +272,163 @@ public class VReservas extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void VSeñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VSeñaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_VSeñaActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void VHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHabitacionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_VHabitacionActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+    int selectedRow = jTable1.getSelectedRow(); 
+        
+        
+    if (selectedRow == -1) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Seleccione un huésped para editar", "!!AVISO!!", INFORMATION_MESSAGE);
+        return;
+    }    
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String checkIn = VCheckIn.getText();
+        String checkout = VCheckout.getText();
+        String habitacion = VHabitacion.getText();
+        String huesped = VHuesped.getText();
+        String seña = VSeña.getText();
+        
+        if(checkIn.isEmpty() || checkout.isEmpty() || habitacion.isEmpty() || huesped.isEmpty() || seña.isEmpty()){
+            javax.swing.JOptionPane.showMessageDialog(this, "debe completar todos los campos", "!!AVISO!!", INFORMATION_MESSAGE);
+        }
+        
+        DatosReservas reserva = new DatosReservas();
+        reserva.setCheckIn(checkIn);
+        reserva.setCheckout(checkout);
+        reserva.setNroHabitacion((int) Long.parseLong(habitacion));
+        reserva.setHuesped(huesped);
+        reserva.setSeña((int) Long.parseLong(seña));
+        try {
+            DAO dao = new DAOReservasImpl();
+        dao.crear(reserva);
+            
+            javax.swing.JOptionPane.showMessageDialog(this, "Huesped Registrado", "AVISO", INFORMATION_MESSAGE);
+            
+            
+            
+            VCheckIn.setText("");
+            VCheckout.setText("");
+            VHabitacion.setText("");
+            VHuesped.setText("");
+            VSeña.setText("");
+            
+        } catch(Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ocurrio un error al intentar registrar al Huesped", "!!AVISO!!", HEIGHT);
+            System.out.println(e.getMessage());
+            
+        }System.out.println("Huesped Registrado :D");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void VCheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VCheckInActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VCheckInActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        int[] selectedRows = jTable1.getSelectedRows();
+    
+    if (selectedRows.length == 0) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Seleccione al menos una reserva para eliminar", "!!AVISO!!", INFORMATION_MESSAGE);
+        return;
+    }
+    
+    try {
+        DAO dao = new DAOReservasImpl();
+        
+        for (int row : selectedRows) {
+            int userId = (int) jTable1.getValueAt(row, 0); 
+            dao.borrar(userId); 
+            
+            
+        }
+
+        javax.swing.JOptionPane.showMessageDialog(this, "reserva(s) eliminada(s)", "AVISO", INFORMATION_MESSAGE);
+        refreshTable(); 
+
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error al intentar eliminar la reserva", "!!AVISO!!", INFORMATION_MESSAGE);
+        System.out.println(e.getMessage());
+    }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    int[] selectedRows = jTable1.getSelectedRows();
+    
+    if (selectedRows.length == 0) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Seleccione al menos un huesped para eliminar", "!!AVISO!!", INFORMATION_MESSAGE);
+        return;
+    }
+    
+    try {
+        DAO dao = new DAOReservasImpl();
+        
+        for (int row : selectedRows) {
+            int userId = (int) jTable1.getValueAt(row, 0); 
+            dao.borrar(userId); 
+            
+            
+        }
+
+        javax.swing.JOptionPane.showMessageDialog(this, "Huesped(es) eliminado(s)", "AVISO", INFORMATION_MESSAGE);
+        refreshTable(); 
+
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error al intentar eliminar el huesped", "!!AVISO!!", INFORMATION_MESSAGE);
+        System.out.println(e.getMessage());
+    }        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        VCheckIn.setText("");
+        VCheckout.setText("");
+        VHabitacion.setText("");
+        VHuesped.setText("");
+        VSeña.setText("");        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+     private void LoadReservas() {
+    try {
+        DAO dao = new DAOReservasImpl();
+        List<DatosReservas> listaDatosReservas = dao.listar();
+
+        
+        String[] columnas = {"CheckIn", "Checkout", "Habitación/es", "Huesped", "Seña" };
+        Object[][] data = new Object[listaDatosReservas.size()][columnas.length];
+
+        for (int i = 0; i < listaDatosReservas.size(); i++) {
+            DatosReservas reserva = listaDatosReservas.get(i);
+            data[i][0] = reserva.getId(); 
+            data[i][1] = reserva.getCheckIn();
+            data[i][2] = reserva.getCheckout();
+            data[i][3] = reserva.getNroHabitacion(); 
+            data[i][4] = reserva.getHuesped(); 
+            data[i][5] = reserva.getSeña();
+        }
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(data, columnas));
+
+    } catch (Exception e) {
+        System.out.println("Error al cargar los datos: " + e.getMessage());
+    }
+    }
+    private void refreshTable(){
+        LoadReservas();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField VCheckIn;
+    private javax.swing.JTextField VCheckout;
+    private javax.swing.JTextField VHabitacion;
+    private javax.swing.JTextField VHuesped;
+    private javax.swing.JTextField VSeña;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -269,10 +443,5 @@ public class VReservas extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }

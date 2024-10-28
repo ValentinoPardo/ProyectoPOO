@@ -21,6 +21,10 @@ public class DatosReservas {
         this.Seña = Seña;
     }
 
+    public DatosReservas() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public String getCheckIn() {
         return CheckIn;
     }
@@ -103,6 +107,10 @@ public class DatosReservas {
             return false;
         }
         return Objects.equals(this.Huesped, other.Huesped);
+    }
+
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     
