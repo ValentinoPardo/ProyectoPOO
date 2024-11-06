@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 public class BaseDatos {
     protected Connection conexion;
     private final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private final String DB_URL = "jdbc:mysql://localhost:3306/CheckInPro";
+    private final String DB_URL = "jdbc:mysql://localhost:3306/hotel_2";
     
     private final String USER = "root";
     private final String PASS = "1234";

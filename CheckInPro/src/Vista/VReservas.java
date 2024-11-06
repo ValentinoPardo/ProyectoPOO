@@ -5,6 +5,7 @@
 package Vista;
 
 import Datos.DatosReservas;
+import Datos.Huespedes;
 import Interfaces.DAO;
 import Interfaces.DAOReservasImpl;
 import java.util.List;
@@ -308,7 +309,17 @@ public class VReservas extends javax.swing.JPanel {
         reserva.setHuesped(huesped);
         reserva.setSeña((int) Long.parseLong(seña));
         try {
-            DAO dao = new DAOReservasImpl();
+            DAO dao = new DAOReservasImpl() {
+                @Override
+                public void crear(Huespedes huesped) throws Exception {
+                    throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                }
+
+                @Override
+                public void modificar(Huespedes huesped) throws Exception {
+                    throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                }
+            };
         dao.crear(reserva);
             
             javax.swing.JOptionPane.showMessageDialog(this, "Huesped Registrado", "AVISO", INFORMATION_MESSAGE);

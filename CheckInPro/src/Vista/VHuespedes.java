@@ -6,12 +6,14 @@ import Interfaces.DAOHuespedesImpl;
 import java.util.List;
 import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
 import Interfaces.DAO;
+import javax.swing.JOptionPane;
 
 
 
 public class VHuespedes extends javax.swing.JPanel {
     private int idSeleccionado = -1;
-
+    Huespedes huespededicion;
+   
     public VHuespedes() {
         initComponents();
         LoadHuespedes();
@@ -356,12 +358,49 @@ public class VHuespedes extends javax.swing.JPanel {
 
     private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
     int selectedRow = jTable1.getSelectedRow(); 
-        
-        
-    if (selectedRow == -1) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Seleccione un huésped para editar", "!!AVISO!!", INFORMATION_MESSAGE);
+    if (idSeleccionado == -1) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Primero debe seleccionar un huésped para editar", "!!AVISO!!", JOptionPane.INFORMATION_MESSAGE);
         return;
     }
+
+    try {
+        // Crear instancia del DAO
+        DAO dao = new DAOHuespedesImpl();
+        
+        // Obtener datos editados de los campos de texto
+        String nombre = HNombre.getText();
+        String apellido = HApellido.getText();
+        String dni = HDni.getText();
+        String telefono = HTelefono.getText();
+        String correo = HCorreo.getText();
+
+        // Crear objeto Huespedes con los datos actualizados
+        Huespedes huesped = new Huespedes();
+        huesped.setId(idSeleccionado);
+        huesped.setNombre(nombre);
+        huesped.setApellido(apellido);
+        huesped.setDocumento(Long.parseLong(dni));
+        huesped.setTelefono(telefono);
+        huesped.setCorreo(correo);
+
+        // Llamar al método modificar para actualizar la base de datos
+        dao.modificar(huesped);
+        
+        javax.swing.JOptionPane.showMessageDialog(this, "Huésped actualizado correctamente", "AVISO", JOptionPane.INFORMATION_MESSAGE);
+
+        // Limpiar campos de texto y refrescar tabla si es necesario
+        HNombre.setText("");
+        HApellido.setText("");
+        HDni.setText("");
+        HTelefono.setText("");
+        HCorreo.setText("");
+        idSeleccionado = -1;
+        refreshTable();
+        // Aquí puedes agregar código para refrescar la tabla si es necesario
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error al intentar actualizar el huésped", "!!AVISO!!", JOptionPane.INFORMATION_MESSAGE);
+        System.out.println(e.getMessage());
+    }    
     }//GEN-LAST:event_BtnGuardarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
