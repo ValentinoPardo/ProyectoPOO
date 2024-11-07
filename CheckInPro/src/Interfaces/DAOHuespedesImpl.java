@@ -9,7 +9,7 @@ import Interfaces.DAO;
 import java.util.ArrayList;
 import java.sql.ResultSet;
 
-public class DAOHuespedesImpl extends BaseDatos implements DAO{
+public class DAOHuespedesImpl extends BaseDatos implements DAO<Huespedes>{
 
     public void crear(Huespedes huesped) throws Exception {
         try {

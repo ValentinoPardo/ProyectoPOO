@@ -12,4 +12,18 @@ telefono bigint not null,
 documento bigint not null,
 constraint pk_id_huesped primary key (id_huesped));
  
-select * from Huespedes
+select * from Huespedes;
+
+create table if not exists Reservas(
+id_reserva int not null auto_increment,
+checkin DATE,
+checkout DATE,
+habitacion_es bigint not null,
+id_huesped int,
+Seña bigint not null,
+constraint pk_id_reserva primary key (id_reserva),
+constraint `FK_id_huesped` foreign key (id_huesped) references Huespedes(id_huesped));
+
+ 
+select * from Reservas;
+

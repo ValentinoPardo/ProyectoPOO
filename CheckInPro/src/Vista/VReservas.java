@@ -87,49 +87,49 @@ public class VReservas extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "CheckIIn ", "Checkout", "Habitación/es", "Huesped", "Seña"
+                "id", "CheckIIn ", "Checkout", "Habitación/es", "Huesped", "Seña"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -303,22 +303,14 @@ public class VReservas extends javax.swing.JPanel {
         }
         
         DatosReservas reserva = new DatosReservas();
-        reserva.setCheckIn(checkIn);
-        reserva.setCheckout(checkout);
-        reserva.setNroHabitacion((int) Long.parseLong(habitacion));
-        reserva.setHuesped(huesped);
-        reserva.setSeña((int) Long.parseLong(seña));
+        reserva.setCheckIn((String) (checkIn));
+        reserva.setCheckout((String) (checkout));
+        reserva.setNroHabitacion((int) Integer.parseInt(habitacion));
+        reserva.setHuesped((int) Integer.parseInt(huesped));
+        reserva.setSeña((int) Integer.parseInt(seña));
         try {
             DAO dao = new DAOReservasImpl() {
-                @Override
-                public void crear(Huespedes huesped) throws Exception {
-                    throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-                }
-
-                @Override
-                public void modificar(Huespedes huesped) throws Exception {
-                    throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-                }
+                 
             };
         dao.crear(reserva);
             
@@ -411,7 +403,7 @@ public class VReservas extends javax.swing.JPanel {
         List<DatosReservas> listaDatosReservas = dao.listar();
 
         
-        String[] columnas = {"CheckIn", "Checkout", "Habitación/es", "Huesped", "Seña" };
+        String[] columnas = {"id", "CheckIn", "Checkout", "Habitación/es", "Huesped", "Seña" };
         Object[][] data = new Object[listaDatosReservas.size()][columnas.length];
 
         for (int i = 0; i < listaDatosReservas.size(); i++) {

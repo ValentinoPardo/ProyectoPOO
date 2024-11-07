@@ -10,10 +10,10 @@ public class DatosReservas {
     private String CheckIn;
     private String Checkout;
     private int NroHabitacion; 
-    private String Huesped;
+    private int Huesped;
     private int Seña;
 
-    public DatosReservas(String CheckIn, String Checkout, int NroHabitacion, String Huesped, int Seña) {
+    public DatosReservas(String CheckIn, String Checkout, int NroHabitacion, int Huesped, int Seña) {
         this.CheckIn = CheckIn;
         this.Checkout = Checkout;
         this.NroHabitacion = NroHabitacion;
@@ -22,7 +22,7 @@ public class DatosReservas {
     }
 
     public DatosReservas() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         
     }
 
     public String getCheckIn() {
@@ -49,11 +49,11 @@ public class DatosReservas {
         this.NroHabitacion = NroHabitacion;
     }
 
-    public String getHuesped() {
+    public int getHuesped() {
         return Huesped;
     }
 
-    public void setHuesped(String Huesped) {
+    public void setHuesped(int Huesped) {
         this.Huesped = Huesped;
     }
 
