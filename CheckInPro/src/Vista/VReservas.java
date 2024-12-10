@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package Vista;
 
 import Datos.DatosReservas;
@@ -44,7 +41,7 @@ public class VReservas extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         VHuesped = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        VSeña = new javax.swing.JTextField();
+        VAnticipo = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
@@ -77,11 +74,11 @@ public class VReservas extends javax.swing.JPanel {
 
         jLabel5.setText("Huesped que realiza la reserva");
 
-        jLabel6.setText("Seña");
+        jLabel6.setText("Anticipo");
 
-        VSeña.addActionListener(new java.awt.event.ActionListener() {
+        VAnticipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VSeñaActionPerformed(evt);
+                VAnticipoActionPerformed(evt);
             }
         });
 
@@ -125,7 +122,7 @@ public class VReservas extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "id", "CheckIIn ", "Checkout", "Habitación/es", "Huesped", "Seña"
+                "id", "CheckIIn ", "Checkout", "Habitación/es", "Huesped", "Anticipo"
             }
         ) {
             Class[] types = new Class [] {
@@ -221,7 +218,7 @@ public class VReservas extends javax.swing.JPanel {
                         .addComponent(jLabel6)
                         .addGap(73, 73, 73))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(VSeña, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(VAnticipo, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(174, 174, 174)
@@ -257,7 +254,7 @@ public class VReservas extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(VSeña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(VAnticipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(84, 84, 84)))
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -273,9 +270,9 @@ public class VReservas extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void VSeñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VSeñaActionPerformed
+    private void VAnticipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VAnticipoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_VSeñaActionPerformed
+    }//GEN-LAST:event_VAnticipoActionPerformed
 
     private void VHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VHabitacionActionPerformed
         // TODO add your handling code here:
@@ -296,9 +293,9 @@ public class VReservas extends javax.swing.JPanel {
         String checkout = VCheckout.getText();
         String habitacion = VHabitacion.getText();
         String huesped = VHuesped.getText();
-        String seña = VSeña.getText();
+        String anticipo = VAnticipo.getText();
         
-        if(checkIn.isEmpty() || checkout.isEmpty() || habitacion.isEmpty() || huesped.isEmpty() || seña.isEmpty()){
+        if(checkIn.isEmpty() || checkout.isEmpty() || habitacion.isEmpty() || huesped.isEmpty() || anticipo.isEmpty()){
             javax.swing.JOptionPane.showMessageDialog(this, "debe completar todos los campos", "!!AVISO!!", INFORMATION_MESSAGE);
         }
         
@@ -307,7 +304,7 @@ public class VReservas extends javax.swing.JPanel {
         reserva.setCheckout((String) (checkout));
         reserva.setNroHabitacion((int) Integer.parseInt(habitacion));
         reserva.setHuesped((int) Integer.parseInt(huesped));
-        reserva.setSeña((int) Integer.parseInt(seña));
+        reserva.setAnticipo((int) Integer.parseInt(anticipo));
         try {
             DAO dao = new DAOReservasImpl() {
                  
@@ -322,7 +319,7 @@ public class VReservas extends javax.swing.JPanel {
             VCheckout.setText("");
             VHabitacion.setText("");
             VHuesped.setText("");
-            VSeña.setText("");
+            VAnticipo.setText("");
             
         } catch(Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Ocurrio un error al intentar registrar al Huesped", "!!AVISO!!", HEIGHT);
@@ -394,7 +391,7 @@ public class VReservas extends javax.swing.JPanel {
         VCheckout.setText("");
         VHabitacion.setText("");
         VHuesped.setText("");
-        VSeña.setText("");        // TODO add your handling code here:
+        VAnticipo.setText("");        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
      private void LoadReservas() {
@@ -403,7 +400,7 @@ public class VReservas extends javax.swing.JPanel {
         List<DatosReservas> listaDatosReservas = dao.listar();
 
         
-        String[] columnas = {"id", "CheckIn", "Checkout", "Habitación/es", "Huesped", "Seña" };
+        String[] columnas = {"id", "CheckIn", "Checkout", "Habitación/es", "Huesped", "Anticipo" };
         Object[][] data = new Object[listaDatosReservas.size()][columnas.length];
 
         for (int i = 0; i < listaDatosReservas.size(); i++) {
@@ -413,7 +410,7 @@ public class VReservas extends javax.swing.JPanel {
             data[i][2] = reserva.getCheckout();
             data[i][3] = reserva.getNroHabitacion(); 
             data[i][4] = reserva.getHuesped(); 
-            data[i][5] = reserva.getSeña();
+            data[i][5] = reserva.getAnticipo();
         }
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(data, columnas));
@@ -427,11 +424,11 @@ public class VReservas extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField VAnticipo;
     private javax.swing.JTextField VCheckIn;
     private javax.swing.JTextField VCheckout;
     private javax.swing.JTextField VHabitacion;
     private javax.swing.JTextField VHuesped;
-    private javax.swing.JTextField VSeña;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

@@ -1,29 +1,23 @@
-create database hotel_2;
-use hotel_2;
+CREATE TABLE IF NOT EXISTS Huespedes (
+    id_huesped INT NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(100) NOT NULL,
+    apellido VARCHAR(100) NOT NULL,
+    correo VARCHAR(100) NOT NULL,
+    telefono BIGINT NOT NULL,
+    documento BIGINT NOT NULL,
+    CONSTRAINT pk_id_huesped PRIMARY KEY (id_huesped)
+);
 
- Drop database hotel_2;
- 
-Create table if not exists Huespedes(
-id_huesped int not null auto_increment,
-nombre varchar(100) not null,
-apellido varchar(100) not null,
-correo varchar (100) not null,
-telefono bigint not null,
-documento bigint not null,
-constraint pk_id_huesped primary key (id_huesped));
- 
-select * from Huespedes;
-
-create table if not exists Reservas(
-id_reserva int not null auto_increment,
-checkin DATE,
-checkout DATE,
-habitacion_es bigint not null,
-id_huesped int,
-Seña bigint not null,
-constraint pk_id_reserva primary key (id_reserva),
-constraint `FK_id_huesped` foreign key (id_huesped) references Huespedes(id_huesped));
-
- 
-select * from Reservas;
-
+-- Crear tabla Reservas
+CREATE TABLE IF NOT EXISTS Reservas (
+    id_reserva INT NOT NULL AUTO_INCREMENT,
+    checkin varchar (100) not null,
+	checkout varchar (100) not null,
+    habitacion INT NOT NULL,
+    id_huesped INT NOT NULL,             -- Cambiado para consistencia
+    anticipo BIGINT NOT NULL,
+    CONSTRAINT pk_id_reserva PRIMARY KEY (id_reserva),
+    CONSTRAINT fk_huesped FOREIGN KEY (id_huesped) 
+        REFERENCES Huespedes (id_huesped) 
+        ON DELETE CASCADE ON UPDATE CASCADE
+);

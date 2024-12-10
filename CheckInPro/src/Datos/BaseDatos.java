@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Datos;
 
 import java.sql.Connection;
@@ -16,7 +13,7 @@ public class BaseDatos {
     private final String DB_URL = "jdbc:mysql://localhost:3306/hotel_2";
     
     private final String USER = "root";
-    private final String PASS = "1234";
+    private final String PASS = "admin";
     
     public void Conectar() throws ClassNotFoundException{
         try {

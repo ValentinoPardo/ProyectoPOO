@@ -15,13 +15,13 @@ public class DAOReservasImpl extends BaseDatos implements DAO<DatosReservas> {
         try {
             this.Conectar();
             PreparedStatement st = this.conexion.prepareStatement(
-                "INSERT INTO Reservas (checkin, Checkout, habitacion_es, id_huesped, seña) VALUES (?, ?, ?, ?, ?)"
+                "INSERT INTO Reservas (checkin, Checkout, habitacion, id_huesped, anticipo) VALUES (?, ?, ?, ?, ?)"
             );
             st.setString(1, reserva.getCheckIn());
             st.setString(2, reserva.getCheckout());
             st.setInt(3, reserva.getNroHabitacion());
             st.setInt(4, reserva.getHuesped());
-            st.setLong(5, reserva.getSeña());
+            st.setLong(5, reserva.getAnticipo());
             st.executeUpdate();
             st.close();
         } catch (Exception e) {
@@ -36,13 +36,13 @@ public class DAOReservasImpl extends BaseDatos implements DAO<DatosReservas> {
         try {
             this.Conectar();
             PreparedStatement st = this.conexion.prepareStatement(
-                "UPDATE Reservas SET CheckIn = ?, Checkout = ?, NroHabitacion = ?, Huesped = ?, Seña = ? WHERE id_reserva = ?"
+                "UPDATE Reservas SET CheckIn = ?, Checkout = ?, Habitacion = ?, id_Huesped = ?, Anticipo = ? WHERE id_reserva = ?"
             );
             st.setString(1, reserva.getCheckIn());
             st.setString(2, reserva.getCheckout());
             st.setInt(3, reserva.getNroHabitacion());
             st.setInt(4, reserva.getHuesped());
-            st.setLong(5, reserva.getSeña());
+            st.setLong(5, reserva.getAnticipo());
             st.setInt(6, reserva.getId()); // Usar el ID de la reserva para identificar la fila a modificar
             st.executeUpdate();
             st.close();
@@ -81,9 +81,9 @@ public class DAOReservasImpl extends BaseDatos implements DAO<DatosReservas> {
                 DatosReservas reserva = new DatosReservas();
                 reserva.setCheckIn(rs.getString("CheckIn"));
                 reserva.setCheckout(rs.getString("Checkout"));
-                reserva.setNroHabitacion(rs.getInt("NroHabitacion"));
-                reserva.setHuesped(rs.getInt("Huesped")); // Extraer directamente del ResultSet
-                reserva.setSeña((int) rs.getLong("Seña"));
+                reserva.setNroHabitacion(rs.getInt("Habitacion"));
+                reserva.setHuesped(rs.getInt("id_Huesped")); // Extraer directamente del ResultSet
+                reserva.setAnticipo((int) rs.getLong("Anticipo"));
                 lista.add(reserva);
             }
             rs.close();
